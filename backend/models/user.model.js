@@ -37,8 +37,8 @@ userSchema.methods.generateAuthToken = () => {
     return token;
 }
 
-userSchema.methods.comparePassword = async (password) => {
-    return await bcrypt.compare(password, this.password);
+userSchema.methods.comparePassword = async (password, userPassword) => {
+    return await bcrypt.compare(password, userPassword);
 }
 
 userSchema.statics.hashPassword = async (password) => {

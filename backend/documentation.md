@@ -48,7 +48,7 @@ This file contains the controller logic for handling user-related operations, su
 - `validationResult`: Middleware from `express-validator` for request validation.
 
 ### Functions
-- **`registerUser(req, res, next)`**:
+- **`/users/register`**:
   - **Purpose**: Handles user registration.
   - **Workflow**:
     1. Validates incoming request data using `express-validator`.
@@ -56,6 +56,17 @@ This file contains the controller logic for handling user-related operations, su
     3. Hashes the password using `userModel.hashPassword`.
     4. Creates a new user in the database via `userService.createUser`.
     5. Generates a JWT using the `generateAuthToken` method on the user instance.
+    6. Returns a success response with the token and user details.
+  - **Error Handling**: Returns `400` status with validation errors if input is invalid.
+
+- **`/users/login`**:
+  - **Purpose**: Handles user login.
+  - **Workflow**:
+    1. Validates incoming request data using `express-validator`.
+    2. Extracts `email`, and `password` from the request body.
+    3. Check if user exists using `userModel.findOne()`.
+    4. check password matches or not using `user.comparePassword()`.
+    5. Generates a JWT using the `generateAuthToken` method on the user instance if user found & password matches to hashed password.
     6. Returns a success response with the token and user details.
   - **Error Handling**: Returns `400` status with validation errors if input is invalid.
 
