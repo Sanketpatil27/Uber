@@ -82,5 +82,19 @@ This file contains the controller logic for handling user-related operations, su
 - **`/users/logout`**:
   - **Purpose**: clear the token from local browser storage as well as blacklist from database
 
+### captains Routes
+- **`/captains/register`**:
+  - **Purpose**: creating account for new captains
+  - **workFlow**: 
+    1. `fullname`
+    2. `email`
+    3. `password`
+    4. `vehicle` (object):
+      - color
+      - plate
+      - capacity
+      - location
+      - vehicleType
+
 
 ---
