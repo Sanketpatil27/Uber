@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 // captain is a vehicle owner
 
-mongoose.Schema({
+const captainSchema = mongoose.Schema({
     fullname: {
         firstname: {
             type: String,
@@ -32,7 +32,7 @@ mongoose.Schema({
         type: String
     },
 
-    sttus: {
+    status: {
         type: String,
         enum: ['active', 'inactive'],
         default: 'inactive'
@@ -69,7 +69,7 @@ mongoose.Schema({
     }
 });
 
-captainSchema.methods.generateToken = (_id) => {
+captainSchema.methods.generateAuthToken = (_id) => {
     const token = jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: '24h' });
     return token;
 }
@@ -84,4 +84,4 @@ captainSchema.statics.hashedPassword = async(password) => {
 
 const captainModel = mongoose.model('captain', captainSchema);
 
-moduel.exports = captainModel;
+module.exports = captainModel;
