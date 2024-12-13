@@ -70,4 +70,17 @@ This file contains the controller logic for handling user-related operations, su
     6. Returns a success response with the token and user details.
   - **Error Handling**: Returns `400` status with validation errors if input is invalid.
 
+
+- **`/users/profile`**:
+  - **Purpose**: Give the information of the current Login user.
+  - **Workflow**:
+    1. `user` (object):
+      - fullname
+      - email
+
+
+- **`/users/logout`**:
+  - **Purpose**: clear the token from local browser storage as well as blacklist from database
+
+
 ---
