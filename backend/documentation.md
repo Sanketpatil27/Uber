@@ -97,4 +97,17 @@ This file contains the controller logic for handling user-related operations, su
       - vehicleType
 
 
+- **`/captains/login`**:
+  - **Purpose**: login captains to platform
+  - **workFlow**: 
+    1. `email`
+    2. `password`
+
+
+- **`/captains/profile`**:
+  - **Purpose**: View the profile of the login user
+
+- **`/captains/logout`**:
+  - **Purpose**: logout the user from current session
+
 ---

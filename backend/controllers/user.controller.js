@@ -56,6 +56,10 @@ module.exports.loginUser = async(req, res, next) => {
 }
 
 module.exports.getUserProfile = async(req, res, next) => {
+    if(!req.user) {
+        return res.status(400).json({ message: "user profile doesn't exist!" });
+    }
+    
     return res.status(200).json({ user: req.user });
 }
 
